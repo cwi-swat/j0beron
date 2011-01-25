@@ -1,0 +1,170 @@
+module org.rascalmpl.swatlogo.parser.Logo;
+
+header {
+import java.util.List;
+import java.util.ArrayList;
+import xtc.util.Action;
+import j0beron.ast.*;
+}
+
+public Module Module =
+	ws "MODULE" ws id:Ident ws ';' 
+	  ws decls:Declarations
+	  ws ("BEGIN" ws body:Statements)?
+	  ws "END" ws Ident ws "."
+	{ yyValue = new Module(id, decls, body); };
+
+public Declarations Declarations = 
+   	consts:Consts? ws types:Types? ws vars:Vars? ws procs:Procs?
+   	{ yyValue = new Declarations(consts, types, vars, procs); };
+
+public List<Const> Consts = 
+    "CONST" cs:Const* { yyValue = cs.list(); };
+
+public Const Const = 
+	id:Ident "=" exp:Expression ";"
+	{ yyValue = new Const(id, exp); };
+
+public List<Var> Vars =
+	"VAR" vars:Var*
+	{ yyValue = vars.list(); };
+
+public Var Var = 
+	ids:Idents ":" type:Type ";"
+	{ yyValue = new Var(ids, type); };
+
+
+Command Stat =
+	!"to" word:Word Spacing exps:Exp*
+        {
+        List<Exp> l = new ArrayList<Exp>(exps.list());
+        l.add(0, word);
+        yyValue = new Stat(l); 
+        };
+
+// TODO: print - :x is parsed incorrectly.
+Command Define = TO name:Word Spacing formals:Thing* exps:(!"end" Exp)* END 
+  { yyValue = new To(name, formals.list(), new Stat(exps.list())); };
+
+Quote Quote = '"' word:Word Spacing  { yyValue = new Quote(word); };
+
+transient void Cont =
+    '~' [\t ]* '\n'
+    / ';' (![~] _)* '~' [\t ]* '\n';
+
+Word Word =  
+   '|' chars:BarChar* '|' { yyValue = new Word(chars.list()); }
+	/ chars:WordChar+ { yyValue = new Word(chars.list()); };
+
+
+Character WordChar =
+    yyValue:Escape
+    / Cont { yyValue = null; } 
+	/ ![|[\]()+\-*/=<> \t\n] c:_ { yyValue = new Character(c); };
+
+Character BarChar =
+    '\\' '\\' { yyValue = new Character('\\'); }
+    / '\\' '|' { yyValue = new Character('|'); }
+    / ![\\|] c:_ { yyValue = new Character(c); };
+	
+Character Escape =
+    '\\' 'n' { yyValue = new Character('\n'); }
+    / '\\' 'r' { yyValue = new Character('\r'); }
+    / '\\' 't' { yyValue = new Character('\t'); }
+    / '\\' 'f' { yyValue = new Character('\f'); }
+    / '\\' c:[|[\]\\()+\-*/=<>~; \t\n] { yyValue = new Character(c); };
+
+Thing Thing = ':' word:Word Spacing { yyValue = new Thing(word); };
+
+Sequence List = LBracket exps:Exp* RBracket 
+	{ yyValue = new Sequence(exps.list()); };
+
+Exp Exp =
+    l:AddExp op:Rel r:AddExp { yyValue = new Binary(op, l, r); }
+    / yyValue:AddExp;
+    
+ 
+Exp AddExp =
+     seed:MulExp actions:AddTail* { yyValue = apply(actions, seed); };
+
+constant Action<Exp> AddTail = 
+	op:AddOp right:MulExp { 
+		yyValue = new Action<Exp>() {
+			public Exp run(Exp left) {
+              return new Binary(op, left, right);
+            }
+        };
+    }; 
+	
+   
+Exp MulExp =
+	seed:Unary actions:MulTail* { yyValue = apply(actions, seed); };
+
+constant Action<Exp> MulTail =
+	op:MulOp right:Unary { 
+		yyValue = new Action<Exp>() {
+			public Exp run(Exp left) {
+              return new Binary(op, left, right);
+            }
+        };
+    }; 
+
+Exp Unary = 
+    op:UnOp un:Unary { yyValue = new Unary(op, un); }
+	/ yyValue:Primary;
+	
+
+Exp Primary = 
+	n:Real Spacing { yyValue = new Const(Double.parseDouble(n)); }
+	/ n:Int Spacing { yyValue = new Const(Integer.parseInt(n)); }
+	/ b:Bool Spacing { yyValue = new Const(Boolean.parseBoolean(b)); }
+	/ LParen yyValue:Exp RParen
+	/ LParen yyValue:Stat RParen
+	/ yyValue:List
+	/ yyValue:Quote 
+	/ yyValue:Thing 
+	/ yyValue:Word Spacing;
+
+String Bool = 
+	[tT][rR][uU][eE] 
+	/ [fF][aA][lL][sS][eE] ;
+
+String Int =
+	[0-9]+ ![0-9a-zA-Z] ;
+
+String Real =
+	[0-9]+ '.' [0-9]+ ![0-9a-zA-Z] ;
+
+String Rel =
+    "=" Spacing
+    / ">=" Spacing
+    / "<=" Spacing
+    / ">" Spacing
+    / "<" Spacing;
+
+String MulOp = 
+	"*" Spacing
+	/ "/" Spacing;
+	
+String AddOp = 
+	"-" Spacing
+	/ "+" Spacing;
+
+String UnOp = 
+	"-" Spacing { yyValue = "neg"; };
+
+transient void TO = [tT][oO] Spacing;
+transient void END = [eE][nN][dD] Spacing; 
+
+transient void LParen = '(' Spacing;
+transient void RParen = ')' Spacing;
+
+transient void LBracket = '[' Spacing;
+transient void RBracket = ']' Spacing;
+
+transient void Spacing = (Space / EndOfLineComment)*;
+transient void Space              = ' ' /  '\t' / '\f' / LineTerminator ;
+transient void LineTerminator     = '\r' '\n' / '\r' / '\n' ;
+transient void EndOfLineComment   = ';' (![\n] _)* '\n'+ !'\n';
+
+
