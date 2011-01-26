@@ -12,10 +12,6 @@ public class Record extends Type {
 		this.fields = fields;
 	}
 
-	public Fields getFields() {
-		return fields;
-	}
-
 	@Override
 	public Value init(Env env) {
 		j0beron2.eval.values.Record rec = new j0beron2.eval.values.Record();

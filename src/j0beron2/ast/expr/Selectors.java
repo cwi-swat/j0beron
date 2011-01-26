@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Selectors extends ASTNode implements Iterable<Selector> {
+public class Selectors extends ASTNode {
 	private final List<Selector> selectors;
 
 	public Selectors(Selector selector, Selectors selectors) {
@@ -21,11 +21,6 @@ public class Selectors extends ASTNode implements Iterable<Selector> {
 		selectors = new LinkedList<Selector>();
 	}
 
-	@Override
-	public Iterator<Selector> iterator() {
-		return selectors.iterator();
-	}
-	
 	public Ref deref(Ref x, Env env) {
 		for (Selector s: selectors) {
 			x = s.select(x, env);

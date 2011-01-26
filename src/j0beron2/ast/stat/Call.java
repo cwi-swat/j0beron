@@ -19,14 +19,6 @@ public class Call extends Stat {
 		this.actuals = actuals;
 	}
 
-	public Actuals getActuals() {
-		return actuals;
-	}
-	
-	public Ident getIdent() {
-		return ident;
-	}
-
 	@Override
 	public void eval(Env env) {
 		Closure clos = (Closure) env.lookup(ident);

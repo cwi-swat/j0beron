@@ -1,7 +1,6 @@
 package j0beron2.parser;
 
 import j0beron2.ast.decl.Module;
-import j0beron2.eval.ModuleEvaluator;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -67,8 +66,7 @@ public class Oberon0 {
 			Oberon0Parser parser = new Oberon0Parser(lexer);
 			if (parser.parse()) {
 				Module ast = parser.getResult();
-				ModuleEvaluator eval = new ModuleEvaluator(ast, input, output);
-				eval.run();
+				ast.run(input, output);
 			}
 		}
 		catch (IOException e) {

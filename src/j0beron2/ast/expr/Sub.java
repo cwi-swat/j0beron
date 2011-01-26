@@ -6,8 +6,6 @@ import j0beron2.eval.values.Value;
 
 
 public class Sub extends Binary {
-	// TODO rename
-
 	public Sub(Expr lhs, Expr rhs) {
 		super(lhs, rhs);
 	}
