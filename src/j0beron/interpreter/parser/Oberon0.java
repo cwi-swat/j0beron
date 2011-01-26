@@ -19,6 +19,11 @@ public class Oberon0 extends AbstractOberon0 {
 			ast.run(input, output);
 		}
 	}
+
+	@Override
+	public String getName() {
+		return "interpreter";
+	}
 	
 	
 }

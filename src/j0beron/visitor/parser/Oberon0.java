@@ -19,6 +19,11 @@ public class Oberon0 extends AbstractOberon0 {
 			eval.run();
 		}
 	}
+
+	@Override
+	public String getName() {
+		return "visitor";
+	}
 	
 	
 	

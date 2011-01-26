@@ -1,7 +1,5 @@
 package j0beron;
 
-import j0beron.interpreter.parser.Oberon0;
-
 import java.io.File;
 import java.util.Arrays;
 import java.util.Random;
@@ -14,6 +12,29 @@ public class QuickSortTests {
 	private final int inputLength;
 	private final AbstractOberon0 oberon0;
 
+	
+	public static void main(String[] args) {
+		int runs = 1000;
+		int length = 100;
+		quickSortTest(new j0beron.visitor.parser.Oberon0(), runs, length);
+		quickSortTest(new j0beron.interpreter.parser.Oberon0(), runs, length);
+	}
+	
+	private static void quickSortTest(AbstractOberon0 oberon0, int runs, int inputLength) {
+		QuickSortTests qs = new QuickSortTests(new j0beron.visitor.parser.Oberon0(), runs, inputLength);
+		long duration = timedRun(qs);
+		double seconds = duration / 1000.0;
+		System.out.println(runs + " of quicksorting " + inputLength + " elements (" 
+				+ oberon0.getName() + "): " 
+				+ seconds + " (avg = " + seconds / runs + ")");
+	}
+	
+	private static long timedRun(QuickSortTests qs) {
+		long start = System.currentTimeMillis();
+		qs.run();
+		return System.currentTimeMillis() - start;
+	}
+	
 	public QuickSortTests(AbstractOberon0 oberon0, int runs, int inputLength) {
 		this.oberon0 = oberon0;
 		this.runs = runs;
@@ -26,9 +47,9 @@ public class QuickSortTests {
 		File qs = new File(QUICKSORT);
 		int array[] = new int[inputLength];
 		
-		firstLog();
+//		firstLog();
 		for (int i = 0; i < runs; i++) {
-			nextLog(i);			
+//			nextLog(i);			
 			populate(array);
 			
 			String input = toIOString(array);
@@ -44,7 +65,7 @@ public class QuickSortTests {
 			}
 			
 		}
-		System.out.println();
+//		System.out.println();
 		
 	}
 	

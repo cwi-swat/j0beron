@@ -78,5 +78,5 @@ public abstract class AbstractOberon0  {
 
 
 	protected abstract void eval(InputStream src, BufferedReader input, PrintWriter output);
-
+	public abstract String getName();
 }

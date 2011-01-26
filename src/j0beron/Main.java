@@ -16,8 +16,6 @@ public class Main {
 	private static final String VISITOR = "visitor";
 	
 	public static void main(String[] args) throws IOException {
-		//new QuickSortTests(1000, 100).run();
-		
 		javaNCSSmetrics(INTERPRETER);
 		javaNCSSmetrics(VISITOR);
 		
