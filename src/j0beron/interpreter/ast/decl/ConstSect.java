@@ -1,11 +1,12 @@
 package j0beron.interpreter.ast.decl;
 
+import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.eval.env.Env;
 
 import java.util.Collections;
 import java.util.Iterator;
 
-public class ConstSect extends Section implements Iterable<ConstDecl> {
+public class ConstSect extends ASTNode implements Iterable<ConstDecl> {
 
 	private final ConstDecls decls;
 
@@ -17,7 +18,6 @@ public class ConstSect extends Section implements Iterable<ConstDecl> {
 		this(null);
 	}
 
-	@Override
 	public void declare(Env env) {
 		for (ConstDecl cd: this) {
 			env.declareConstant(cd.getIdent(), cd.getInit().eval(env));

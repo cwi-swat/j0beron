@@ -1,9 +1,10 @@
 package j0beron.interpreter.ast.decl;
 
+import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.ast.expr.Expr;
 import j0beron.interpreter.ast.type.Ident;
 
-public class ConstDecl extends Decl {
+public class ConstDecl extends ASTNode {
 
 	private final Ident ident;
 	private final Expr init;

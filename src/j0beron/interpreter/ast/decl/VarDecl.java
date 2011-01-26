@@ -1,9 +1,10 @@
 package j0beron.interpreter.ast.decl;
 
+import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.ast.type.Idents;
 import j0beron.interpreter.ast.type.Type;
 
-public class VarDecl extends Decl {
+public class VarDecl extends ASTNode {
 
 	private final Idents idents;
 	private final Type type;

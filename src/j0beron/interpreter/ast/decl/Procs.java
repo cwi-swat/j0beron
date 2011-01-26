@@ -1,12 +1,13 @@
 package j0beron.interpreter.ast.decl;
 
+import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.eval.env.Env;
 
 import java.util.LinkedList;
 import java.util.List;
 
 
-public class Procs extends Section {
+public class Procs extends ASTNode {
 	private final List<Proc> procs;
 
 	public Procs(Proc proc, Procs procs) {
@@ -19,7 +20,6 @@ public class Procs extends Section {
 		procs = new LinkedList<Proc>();
 	}
 
-	@Override
 	public void declare(Env env) {
 		for (Proc proc: procs) {
 			env.declareProc(proc.getName(), proc);

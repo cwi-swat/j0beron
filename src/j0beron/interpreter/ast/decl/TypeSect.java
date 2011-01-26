@@ -1,8 +1,9 @@
 package j0beron.interpreter.ast.decl;
 
+import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.eval.env.Env;
 
-public class TypeSect extends Section {
+public class TypeSect extends ASTNode{
 
 	private final TypeDecls decls;
 
@@ -14,7 +15,6 @@ public class TypeSect extends Section {
 		this(null);
 	}
 
-	@Override
 	public void declare(Env env) {
 		if (decls != null) {
 			for (TypeDecl td: decls) {

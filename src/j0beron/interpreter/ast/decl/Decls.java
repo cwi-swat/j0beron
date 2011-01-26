@@ -1,9 +1,10 @@
 package j0beron.interpreter.ast.decl;
 
+import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.eval.env.Env;
 
 
-public class Decls extends Section {
+public class Decls extends ASTNode {
 
 	private final ConstSect constSect;
 	private final TypeSect typeSect;
@@ -18,7 +19,6 @@ public class Decls extends Section {
 		this.procs = procs;
 	}
 
-	@Override
 	public void declare(Env env) {
 		constSect.declare(env);
 		typeSect.declare(env);

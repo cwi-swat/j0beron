@@ -47,9 +47,7 @@ public class QuickSortTests {
 		File qs = new File(QUICKSORT);
 		int array[] = new int[inputLength];
 		
-//		firstLog();
 		for (int i = 0; i < runs; i++) {
-//			nextLog(i);			
 			populate(array);
 			
 			String input = toIOString(array);
@@ -65,8 +63,6 @@ public class QuickSortTests {
 			}
 			
 		}
-//		System.out.println();
-		
 	}
 	
 	private void populate(int[] array) {
@@ -81,17 +77,6 @@ public class QuickSortTests {
 			str += array[i] + "\n";
 		}
 		return str;
-	}
-
-	private void firstLog() {
-		System.out.print("random testing " + 0);
-	}
-
-	private void nextLog(int i) {
-		for (int k = 0; k < ("" + i).length(); k++) {
-			System.out.print('\b');
-		}
-		System.out.print(i + 1);
 	}
 
 

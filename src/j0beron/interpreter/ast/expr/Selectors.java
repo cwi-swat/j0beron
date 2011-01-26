@@ -4,7 +4,6 @@ import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.eval.env.Env;
 import j0beron.interpreter.eval.env.Ref;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 

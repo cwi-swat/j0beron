@@ -1,9 +1,10 @@
 package j0beron.interpreter.ast.decl;
 
+import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.ast.type.Ident;
 import j0beron.interpreter.eval.env.Env;
 
-public class VarSect extends Section {
+public class VarSect extends ASTNode {
 
 	private final VarDecls decls;
 
@@ -15,7 +16,6 @@ public class VarSect extends Section {
 		this(null);
 	}
 
-	@Override
 	public void declare(Env env) {
 		if (decls != null) {
 			for (VarDecl vd: decls) {
