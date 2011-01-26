@@ -2,12 +2,15 @@ package j0beron;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 
-public abstract class AbstractOberon0 implements IOberon0 {
+public abstract class AbstractOberon0  {
 	protected final BufferedReader stdin;
 	protected final PrintWriter stdout;
 
@@ -52,6 +55,28 @@ public abstract class AbstractOberon0 implements IOberon0 {
 		run(file, input, stdout);
 	}
 	
-	public abstract void run(File file, BufferedReader input, PrintWriter output);
 	
+	public void run(File file, BufferedReader input, PrintWriter output) {
+		FileInputStream src = null;
+		try {
+			src = new FileInputStream(file);
+			eval(src, input, output);
+		}
+		catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		finally {
+			if (src != null) {
+				try {
+					src.close();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+	}
+
+
+	protected abstract void eval(InputStream src, BufferedReader input, PrintWriter output);
+
 }
