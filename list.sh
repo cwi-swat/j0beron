@@ -1,15 +1,11 @@
 #!/bin/sh
 
-find src -name "*.java" \
-    -and -not -path "src/j0beron2/*" \
-    -and -not -path "src/j0beron/utils*" \
-    -and -not -path "src/j0beron/parser/Oberon0Parser.java" > javancss.lst
+find src/j0beron/visitor -name "*.java" \
+    -and -not -path "src/j0beron/visitor/parser/Oberon0Parser.java" > visitor.files
 
 
-find src -name "*.java" \
-    -and -not -path "src/j0beron/*" \
-    -and -not -path "src/j0beron2/utils*" \
-    -and -not -path "src/j0beron2/parser/Oberon0Parser.java" > javancss2.lst
+find src/j0beron/interpreter -name "*.java" \
+    -and -not -path "src/j0beron/interpreter/parser/Oberon0Parser.java" > interpreter.files
 
 
 		

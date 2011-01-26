@@ -1,0 +1,672 @@
+<?xml version="1.0"?>
+<JDepend>
+    <Packages>
+
+        <Package name="j0beron">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="j0beron.interpreter.ast">
+            <Stats>
+                <TotalClasses>2</TotalClasses>
+                <ConcreteClasses>0</ConcreteClasses>
+                <AbstractClasses>2</AbstractClasses>
+                <Ca>5</Ca>
+                <Ce>2</Ce>
+                <A>1</A>
+                <I>0.29</I>
+                <D>0.29</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="ASTNode.java">
+                    j0beron.interpreter.ast.ASTNode
+                </Class>
+                <Class sourceFile="IASTVisitor.java">
+                    j0beron.interpreter.ast.IASTVisitor
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>java.lang</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.ast.expr</Package>
+                <Package>j0beron.interpreter.ast.stat</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.parser</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="j0beron.interpreter.ast.decl">
+            <Stats>
+                <TotalClasses>19</TotalClasses>
+                <ConcreteClasses>17</ConcreteClasses>
+                <AbstractClasses>2</AbstractClasses>
+                <Ca>5</Ca>
+                <Ce>9</Ce>
+                <A>0.11</A>
+                <I>0.64</I>
+                <D>0.25</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Decl.java">
+                    j0beron.interpreter.ast.decl.Decl
+                </Class>
+                <Class sourceFile="Section.java">
+                    j0beron.interpreter.ast.decl.Section
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="Body.java">
+                    j0beron.interpreter.ast.decl.Body
+                </Class>
+                <Class sourceFile="ConstDecl.java">
+                    j0beron.interpreter.ast.decl.ConstDecl
+                </Class>
+                <Class sourceFile="ConstDecls.java">
+                    j0beron.interpreter.ast.decl.ConstDecls
+                </Class>
+                <Class sourceFile="ConstSect.java">
+                    j0beron.interpreter.ast.decl.ConstSect
+                </Class>
+                <Class sourceFile="Decls.java">
+                    j0beron.interpreter.ast.decl.Decls
+                </Class>
+                <Class sourceFile="FPSect.java">
+                    j0beron.interpreter.ast.decl.FPSect
+                </Class>
+                <Class sourceFile="FPSects.java">
+                    j0beron.interpreter.ast.decl.FPSects
+                </Class>
+                <Class sourceFile="Formals.java">
+                    j0beron.interpreter.ast.decl.Formals
+                </Class>
+                <Class sourceFile="Module.java">
+                    j0beron.interpreter.ast.decl.Module
+                </Class>
+                <Class sourceFile="Proc.java">
+                    j0beron.interpreter.ast.decl.Proc
+                </Class>
+                <Class sourceFile="Procs.java">
+                    j0beron.interpreter.ast.decl.Procs
+                </Class>
+                <Class sourceFile="TypeDecl.java">
+                    j0beron.interpreter.ast.decl.TypeDecl
+                </Class>
+                <Class sourceFile="TypeDecls.java">
+                    j0beron.interpreter.ast.decl.TypeDecls
+                </Class>
+                <Class sourceFile="TypeSect.java">
+                    j0beron.interpreter.ast.decl.TypeSect
+                </Class>
+                <Class sourceFile="VarDecl.java">
+                    j0beron.interpreter.ast.decl.VarDecl
+                </Class>
+                <Class sourceFile="VarDecls.java">
+                    j0beron.interpreter.ast.decl.VarDecls
+                </Class>
+                <Class sourceFile="VarSect.java">
+                    j0beron.interpreter.ast.decl.VarSect
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron.interpreter.ast</Package>
+                <Package>j0beron.interpreter.ast.expr</Package>
+                <Package>j0beron.interpreter.ast.stat</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.eval</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+                <Package>java.util</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>j0beron.interpreter.ast</Package>
+                <Package>j0beron.interpreter.ast.stat</Package>
+                <Package>j0beron.interpreter.eval</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+                <Package>j0beron.interpreter.parser</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="j0beron.interpreter.ast.expr">
+            <Stats>
+                <TotalClasses>25</TotalClasses>
+                <ConcreteClasses>21</ConcreteClasses>
+                <AbstractClasses>4</AbstractClasses>
+                <Ca>4</Ca>
+                <Ce>6</Ce>
+                <A>0.16</A>
+                <I>0.6</I>
+                <D>0.24</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Binary.java">
+                    j0beron.interpreter.ast.expr.Binary
+                </Class>
+                <Class sourceFile="Expr.java">
+                    j0beron.interpreter.ast.expr.Expr
+                </Class>
+                <Class sourceFile="Selector.java">
+                    j0beron.interpreter.ast.expr.Selector
+                </Class>
+                <Class sourceFile="Unary.java">
+                    j0beron.interpreter.ast.expr.Unary
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="Add.java">
+                    j0beron.interpreter.ast.expr.Add
+                </Class>
+                <Class sourceFile="And.java">
+                    j0beron.interpreter.ast.expr.And
+                </Class>
+                <Class sourceFile="Div.java">
+                    j0beron.interpreter.ast.expr.Div
+                </Class>
+                <Class sourceFile="Eq.java">
+                    j0beron.interpreter.ast.expr.Eq
+                </Class>
+                <Class sourceFile="GEq.java">
+                    j0beron.interpreter.ast.expr.GEq
+                </Class>
+                <Class sourceFile="GT.java">
+                    j0beron.interpreter.ast.expr.GT
+                </Class>
+                <Class sourceFile="Int.java">
+                    j0beron.interpreter.ast.expr.Int
+                </Class>
+                <Class sourceFile="LEq.java">
+                    j0beron.interpreter.ast.expr.LEq
+                </Class>
+                <Class sourceFile="LT.java">
+                    j0beron.interpreter.ast.expr.LT
+                </Class>
+                <Class sourceFile="Lookup.java">
+                    j0beron.interpreter.ast.expr.Lookup
+                </Class>
+                <Class sourceFile="Member.java">
+                    j0beron.interpreter.ast.expr.Member
+                </Class>
+                <Class sourceFile="Mod.java">
+                    j0beron.interpreter.ast.expr.Mod
+                </Class>
+                <Class sourceFile="Mul.java">
+                    j0beron.interpreter.ast.expr.Mul
+                </Class>
+                <Class sourceFile="NEq.java">
+                    j0beron.interpreter.ast.expr.NEq
+                </Class>
+                <Class sourceFile="Neg.java">
+                    j0beron.interpreter.ast.expr.Neg
+                </Class>
+                <Class sourceFile="Not.java">
+                    j0beron.interpreter.ast.expr.Not
+                </Class>
+                <Class sourceFile="Or.java">
+                    j0beron.interpreter.ast.expr.Or
+                </Class>
+                <Class sourceFile="Pos.java">
+                    j0beron.interpreter.ast.expr.Pos
+                </Class>
+                <Class sourceFile="Selectors.java">
+                    j0beron.interpreter.ast.expr.Selectors
+                </Class>
+                <Class sourceFile="Sub.java">
+                    j0beron.interpreter.ast.expr.Sub
+                </Class>
+                <Class sourceFile="Subscript.java">
+                    j0beron.interpreter.ast.expr.Subscript
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron.interpreter.ast</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+                <Package>j0beron.interpreter.eval.values</Package>
+                <Package>java.lang</Package>
+                <Package>java.util</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.ast.stat</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.parser</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="j0beron.interpreter.ast.stat">
+            <Stats>
+                <TotalClasses>11</TotalClasses>
+                <ConcreteClasses>10</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>2</Ca>
+                <Ce>8</Ce>
+                <A>0.09</A>
+                <I>0.8</I>
+                <D>0.11</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Stat.java">
+                    j0beron.interpreter.ast.stat.Stat
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="Actuals.java">
+                    j0beron.interpreter.ast.stat.Actuals
+                </Class>
+                <Class sourceFile="Assign.java">
+                    j0beron.interpreter.ast.stat.Assign
+                </Class>
+                <Class sourceFile="Call.java">
+                    j0beron.interpreter.ast.stat.Call
+                </Class>
+                <Class sourceFile="ElsIf.java">
+                    j0beron.interpreter.ast.stat.ElsIf
+                </Class>
+                <Class sourceFile="ElsIfs.java">
+                    j0beron.interpreter.ast.stat.ElsIfs
+                </Class>
+                <Class sourceFile="Else.java">
+                    j0beron.interpreter.ast.stat.Else
+                </Class>
+                <Class sourceFile="Exprs.java">
+                    j0beron.interpreter.ast.stat.Exprs
+                </Class>
+                <Class sourceFile="IfThenElse.java">
+                    j0beron.interpreter.ast.stat.IfThenElse
+                </Class>
+                <Class sourceFile="Stats.java">
+                    j0beron.interpreter.ast.stat.Stats
+                </Class>
+                <Class sourceFile="WhileDo.java">
+                    j0beron.interpreter.ast.stat.WhileDo
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron.interpreter.ast</Package>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.ast.expr</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+                <Package>j0beron.interpreter.eval.values</Package>
+                <Package>java.lang</Package>
+                <Package>java.util</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.parser</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="j0beron.interpreter.ast.type">
+            <Stats>
+                <TotalClasses>10</TotalClasses>
+                <ConcreteClasses>9</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>7</Ca>
+                <Ce>6</Ce>
+                <A>0.1</A>
+                <I>0.46</I>
+                <D>0.44</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Type.java">
+                    j0beron.interpreter.ast.type.Type
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="Array.java">
+                    j0beron.interpreter.ast.type.Array
+                </Class>
+                <Class sourceFile="BoolType.java">
+                    j0beron.interpreter.ast.type.BoolType
+                </Class>
+                <Class sourceFile="Field.java">
+                    j0beron.interpreter.ast.type.Field
+                </Class>
+                <Class sourceFile="Fields.java">
+                    j0beron.interpreter.ast.type.Fields
+                </Class>
+                <Class sourceFile="Ident.java">
+                    j0beron.interpreter.ast.type.Ident
+                </Class>
+                <Class sourceFile="Idents.java">
+                    j0beron.interpreter.ast.type.Idents
+                </Class>
+                <Class sourceFile="IntType.java">
+                    j0beron.interpreter.ast.type.IntType
+                </Class>
+                <Class sourceFile="Record.java">
+                    j0beron.interpreter.ast.type.Record
+                </Class>
+                <Class sourceFile="User.java">
+                    j0beron.interpreter.ast.type.User
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron.interpreter.ast</Package>
+                <Package>j0beron.interpreter.ast.expr</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+                <Package>j0beron.interpreter.eval.values</Package>
+                <Package>java.lang</Package>
+                <Package>java.util</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.ast.expr</Package>
+                <Package>j0beron.interpreter.ast.stat</Package>
+                <Package>j0beron.interpreter.eval</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+                <Package>j0beron.interpreter.eval.values</Package>
+                <Package>j0beron.interpreter.parser</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="j0beron.interpreter.eval">
+            <Stats>
+                <TotalClasses>4</TotalClasses>
+                <ConcreteClasses>4</ConcreteClasses>
+                <AbstractClasses>0</AbstractClasses>
+                <Ca>1</Ca>
+                <Ce>6</Ce>
+                <A>0</A>
+                <I>0.86</I>
+                <D>0.14</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="Builtins.java">
+                    j0beron.interpreter.eval.Builtins
+                </Class>
+                <Class sourceFile="Builtins.java">
+                    j0beron.interpreter.eval.Builtins$1
+                </Class>
+                <Class sourceFile="Builtins.java">
+                    j0beron.interpreter.eval.Builtins$2
+                </Class>
+                <Class sourceFile="Builtins.java">
+                    j0beron.interpreter.eval.Builtins$3
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+                <Package>j0beron.interpreter.eval.values</Package>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>j0beron.interpreter.ast.decl</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="j0beron.interpreter.eval.env">
+            <Stats>
+                <TotalClasses>6</TotalClasses>
+                <ConcreteClasses>5</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>6</Ca>
+                <Ce>5</Ce>
+                <A>0.17</A>
+                <I>0.45</I>
+                <D>0.38</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Bindable.java">
+                    j0beron.interpreter.eval.env.Bindable
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="Builtin.java">
+                    j0beron.interpreter.eval.env.Builtin
+                </Class>
+                <Class sourceFile="Closure.java">
+                    j0beron.interpreter.eval.env.Closure
+                </Class>
+                <Class sourceFile="Const.java">
+                    j0beron.interpreter.eval.env.Const
+                </Class>
+                <Class sourceFile="Env.java">
+                    j0beron.interpreter.eval.env.Env
+                </Class>
+                <Class sourceFile="Ref.java">
+                    j0beron.interpreter.eval.env.Ref
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.eval.values</Package>
+                <Package>java.lang</Package>
+                <Package>java.util</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.ast.expr</Package>
+                <Package>j0beron.interpreter.ast.stat</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.eval</Package>
+                <Package>j0beron.interpreter.eval.values</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="j0beron.interpreter.eval.values">
+            <Stats>
+                <TotalClasses>5</TotalClasses>
+                <ConcreteClasses>4</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>5</Ca>
+                <Ce>4</Ce>
+                <A>0.2</A>
+                <I>0.44</I>
+                <D>0.36</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Value.java">
+                    j0beron.interpreter.eval.values.Value
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="Array.java">
+                    j0beron.interpreter.eval.values.Array
+                </Class>
+                <Class sourceFile="Bool.java">
+                    j0beron.interpreter.eval.values.Bool
+                </Class>
+                <Class sourceFile="Int.java">
+                    j0beron.interpreter.eval.values.Int
+                </Class>
+                <Class sourceFile="Record.java">
+                    j0beron.interpreter.eval.values.Record
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+                <Package>java.lang</Package>
+                <Package>java.util</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>j0beron.interpreter.ast.expr</Package>
+                <Package>j0beron.interpreter.ast.stat</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>j0beron.interpreter.eval</Package>
+                <Package>j0beron.interpreter.eval.env</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="j0beron.interpreter.parser">
+            <Stats>
+                <TotalClasses>4</TotalClasses>
+                <ConcreteClasses>3</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>0</Ca>
+                <Ce>9</Ce>
+                <A>0.25</A>
+                <I>1</I>
+                <D>0.25</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Oberon0Tokens.java">
+                    j0beron.interpreter.parser.Oberon0Tokens
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="Oberon0.java">
+                    j0beron.interpreter.parser.Oberon0
+                </Class>
+                <Class sourceFile="Oberon0Lexer.java">
+                    j0beron.interpreter.parser.Oberon0Lexer
+                </Class>
+                <Class sourceFile="Oberon0Parser.java">
+                    j0beron.interpreter.parser.Oberon0Parser
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>j0beron</Package>
+                <Package>j0beron.interpreter.ast</Package>
+                <Package>j0beron.interpreter.ast.decl</Package>
+                <Package>j0beron.interpreter.ast.expr</Package>
+                <Package>j0beron.interpreter.ast.stat</Package>
+                <Package>j0beron.interpreter.ast.type</Package>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+                <Package>java.util</Package>
+            </DependsUpon>
+
+            <UsedBy>
+            </UsedBy>
+        </Package>
+
+        <Package name="java.io">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.lang">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.util">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+    </Packages>
+
+    <Cycles>
+        <Package Name="j0beron.interpreter.ast">
+            <Package>j0beron.interpreter.ast.decl</Package>
+            <Package>j0beron.interpreter.ast.stat</Package>
+            <Package>j0beron.interpreter.ast</Package>
+        </Package>
+
+        <Package Name="j0beron.interpreter.ast.decl">
+            <Package>j0beron.interpreter.ast.stat</Package>
+            <Package>j0beron.interpreter.ast</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+        </Package>
+
+        <Package Name="j0beron.interpreter.ast.expr">
+            <Package>j0beron.interpreter.eval.values</Package>
+            <Package>j0beron.interpreter.eval.env</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+            <Package>j0beron.interpreter.ast.stat</Package>
+            <Package>j0beron.interpreter.ast</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+        </Package>
+
+        <Package Name="j0beron.interpreter.ast.stat">
+            <Package>j0beron.interpreter.ast</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+            <Package>j0beron.interpreter.ast.stat</Package>
+        </Package>
+
+        <Package Name="j0beron.interpreter.ast.type">
+            <Package>j0beron.interpreter.eval.values</Package>
+            <Package>j0beron.interpreter.eval.env</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+            <Package>j0beron.interpreter.ast.stat</Package>
+            <Package>j0beron.interpreter.ast</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+        </Package>
+
+        <Package Name="j0beron.interpreter.eval">
+            <Package>j0beron.interpreter.eval.env</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+            <Package>j0beron.interpreter.ast.stat</Package>
+            <Package>j0beron.interpreter.ast</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+        </Package>
+
+        <Package Name="j0beron.interpreter.eval.env">
+            <Package>j0beron.interpreter.ast.decl</Package>
+            <Package>j0beron.interpreter.ast.stat</Package>
+            <Package>j0beron.interpreter.ast</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+        </Package>
+
+        <Package Name="j0beron.interpreter.eval.values">
+            <Package>j0beron.interpreter.eval.env</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+            <Package>j0beron.interpreter.ast.stat</Package>
+            <Package>j0beron.interpreter.ast</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+        </Package>
+
+        <Package Name="j0beron.interpreter.parser">
+            <Package>j0beron.interpreter.ast.decl</Package>
+            <Package>j0beron.interpreter.ast.stat</Package>
+            <Package>j0beron.interpreter.ast</Package>
+            <Package>j0beron.interpreter.ast.decl</Package>
+        </Package>
+
+    </Cycles>
+</JDepend>

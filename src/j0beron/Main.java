@@ -12,12 +12,32 @@ import jdepend.textui.JDepend;
 
 
 public class Main {
+	private static final String INTERPRETER = "interpreter";
+	private static final String VISITOR = "visitor";
+	
 	public static void main(String[] args) throws IOException {
 		//new QuickSortTests(1000, 100).run();
-		javaNCSS("-ncss", "-all", "-recursive", "@javancss.lst");
-		javaNCSS("-ncss", "-all", "-xml", "-recursive", "-out", "javancss.xml", "@javancss.lst");
-		jDependConsole("bin");
-		jDependXML("bin", "jdepend.xml");
+		
+		javaNCSSmetrics(INTERPRETER);
+		javaNCSSmetrics(VISITOR);
+		
+		jDependMetrics(INTERPRETER);
+		jDependMetrics(VISITOR);
+	}
+	
+	private static void jDependMetrics(String stem) throws IOException {
+		String path = "bin/j0beron/" + stem;
+		jDependConsole(path);
+		jDependXML(path, stem + "-deps.xml");
+	}
+
+	private static void javaNCSSmetrics(String stem) throws IOException {
+		javaNCSS("-ncss", "-all", "-recursive", fileList(stem));
+		javaNCSS("-ncss", "-all", "-xml", "-recursive", "-out",  stem + "-ncss.xml", fileList(stem));
+	}
+
+	private static String fileList(String stem) {
+		return "@" + stem + ".files";
 	}
 	
 	private static void javaNCSS(String ...args) throws IOException {
