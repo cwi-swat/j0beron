@@ -9,6 +9,10 @@ public abstract class Expr extends ASTNode {
 	
 	public abstract Value eval(Env env);
 
+	/*
+	 * this is the default behavior: only lookup expression
+	 * support the computation of an lvalue.
+	 */
 	public Ref lvalueOf(Env env) {
 		throw new UnsupportedOperationException("cannot get lvalue from " + this);
 	}

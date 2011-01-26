@@ -20,7 +20,7 @@ public class ConstSect extends ASTNode implements Iterable<ConstDecl> {
 
 	public void declare(Env env) {
 		for (ConstDecl cd: this) {
-			env.declareConstant(cd.getIdent(), cd.getInit().eval(env));
+			cd.declare(env);
 		}
 	}
 

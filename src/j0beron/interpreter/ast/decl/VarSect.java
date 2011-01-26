@@ -19,9 +19,7 @@ public class VarSect extends ASTNode {
 	public void declare(Env env) {
 		if (decls != null) {
 			for (VarDecl vd: decls) {
-				for (Ident id: vd.getIdents()) {
-					env.declareVar(id, vd.getType().init(env));
-				}
+				vd.declare(env);
 			}
 		}
 	}

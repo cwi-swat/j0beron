@@ -3,7 +3,6 @@ package j0beron.interpreter.ast.stat;
 import j0beron.interpreter.ast.expr.Expr;
 import j0beron.interpreter.eval.env.Env;
 import j0beron.interpreter.eval.values.Bool;
-import j0beron.interpreter.eval.values.Value;
 
 public class IfThenElse extends Stat {
 
@@ -29,20 +28,17 @@ public class IfThenElse extends Stat {
 		
 	@Override
 	public void eval(Env env) {
-		Value x = cond.eval(env);
-		if (((Bool)x).getValue()) {
+		if (((Bool)cond.eval(env)).getValue()) {
 			body.eval(env);
 			return;
 		}
 		for (ElsIf ei: elsIfs) {
-			Value y = ei.getCond().eval(env);
-			if (((Bool)y).getValue()) {
-				ei.getBody().eval(env);
+			if (ei.eval(env)) {
 				return;
-			}		
+			}
 		}
 		if (hasElse()) {
-			elsePart.getBody().eval(env);
+			elsePart.eval(env);
 		}		
 	}
 

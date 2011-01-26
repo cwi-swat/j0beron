@@ -3,6 +3,7 @@ package j0beron.interpreter.ast.decl;
 import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.ast.type.Ident;
 import j0beron.interpreter.ast.type.Type;
+import j0beron.interpreter.eval.env.Env;
 
 public class TypeDecl extends ASTNode {
 
@@ -14,12 +15,8 @@ public class TypeDecl extends ASTNode {
 		this.type = type;
 	}
 	
-	public Ident getIdent() {
-		return ident;
-	}
-	
-	public Type getType() {
-		return type;
+	public void declare(Env env) {
+		env.declareType(ident, type);
 	}
 
 }

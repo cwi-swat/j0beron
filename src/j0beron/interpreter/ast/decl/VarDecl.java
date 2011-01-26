@@ -1,8 +1,10 @@
 package j0beron.interpreter.ast.decl;
 
 import j0beron.interpreter.ast.ASTNode;
+import j0beron.interpreter.ast.type.Ident;
 import j0beron.interpreter.ast.type.Idents;
 import j0beron.interpreter.ast.type.Type;
+import j0beron.interpreter.eval.env.Env;
 
 public class VarDecl extends ASTNode {
 
@@ -13,13 +15,11 @@ public class VarDecl extends ASTNode {
 		this.idents = idents;
 		this.type = type;
 	}
-	
-	public Idents getIdents() {
-		return idents;
-	}
-	
-	public Type getType() {
-		return type;
+
+	public void declare(Env env) {
+		for (Ident id: idents) {
+			env.declareVar(id, type.init(env));
+		}
 	}
 
 }

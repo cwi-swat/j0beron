@@ -18,7 +18,7 @@ public class TypeSect extends ASTNode{
 	public void declare(Env env) {
 		if (decls != null) {
 			for (TypeDecl td: decls) {
-				env.declareType(td.getIdent(), td.getType());
+				td.declare(env);
 			}
 		}
 	}

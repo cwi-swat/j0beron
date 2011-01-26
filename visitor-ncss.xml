@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <javancss>
   <date>2011-01-26</date>
-  <time>12:23:04</time>
+  <time>12:40:54</time>
   <packages>
     <package>
       <name>j0beron.visitor.ast</name>
@@ -86,8 +86,8 @@
     <package>
       <name>j0beron.visitor.parser</name>
       <classes>3</classes>
-      <functions>6</functions>
-      <ncss>200</ncss>
+      <functions>7</functions>
+      <ncss>202</ncss>
       <javadocs>0</javadocs>
       <javadoc_lines>0</javadoc_lines>
       <single_comment_lines>18</single_comment_lines>
@@ -95,8 +95,8 @@
     </package>
     <total>
       <classes>89</classes>
-      <functions>268</functions>
-      <ncss>1448</ncss>
+      <functions>269</functions>
+      <ncss>1450</ncss>
       <javadocs>0</javadocs>
       <javadoc_lines>0</javadoc_lines>
       <single_comment_lines>20</single_comment_lines>
@@ -104,10 +104,10 @@
     </total>
     <table>
       <tr><td>Packages</td><td>Classes</td><td>Functions</td><td>NCSS</td><td>Javadocs</td><td>per</td></tr>
-      <tr><td>9.00</td><td>89.00</td><td>268.00</td><td>1,448.00</td><td>0.00</td><td>Project</td></tr>
-      <tr><td></td><td>9.89</td><td>29.78</td><td>160.89</td><td>0.00</td><td>Package</td></tr>
-      <tr><td></td><td></td><td>3.01</td><td>16.27</td><td>0.00</td><td>Class</td></tr>
-      <tr><td></td><td></td><td></td><td>5.40</td><td>0.00</td><td>Function</td></tr>
+      <tr><td>9.00</td><td>89.00</td><td>269.00</td><td>1,450.00</td><td>0.00</td><td>Project</td></tr>
+      <tr><td></td><td>9.89</td><td>29.89</td><td>161.11</td><td>0.00</td><td>Package</td></tr>
+      <tr><td></td><td></td><td>3.02</td><td>16.29</td><td>0.00</td><td>Class</td></tr>
+      <tr><td></td><td></td><td></td><td>5.39</td><td>0.00</td><td>Function</td></tr>
     </table>
   </packages>
 
@@ -716,8 +716,8 @@
     </object>
     <object>
       <name>j0beron.visitor.parser.Oberon0</name>
-      <ncss>8</ncss>
-      <functions>1</functions>
+      <ncss>10</ncss>
+      <functions>2</functions>
       <classes>0</classes>
       <javadocs>0</javadocs>
     </object>
@@ -736,12 +736,12 @@
       <javadocs>0</javadocs>
     </object>
     <averages>
-      <ncss>12.00</ncss>
-      <functions>3.01</functions>
+      <ncss>12.02</ncss>
+      <functions>3.02</functions>
       <classes>0.03</classes>
       <javadocs>0.00</javadocs>
     </averages>
-    <ncss>1,448.00</ncss>
+    <ncss>1,450.00</ncss>
   </objects>
 
   <functions>
@@ -2324,6 +2324,12 @@
       <javadocs>0</javadocs>
     </function>
     <function>
+      <name>j0beron.visitor.parser.Oberon0.getName()</name>
+      <ncss>2</ncss>
+      <ccn>1</ccn>
+      <javadocs>0</javadocs>
+    </function>
+    <function>
       <name>j0beron.visitor.parser.Oberon0Lexer.Oberon0Lexer(InputStream)</name>
       <ncss>2</ncss>
       <ccn>1</ccn>
@@ -2354,10 +2360,10 @@
       <javadocs>0</javadocs>
     </function>
     <function_averages>
-      <ncss>3.13</ncss>
+      <ncss>3.12</ncss>
       <ccn>1.44</ccn>
       <javadocs>0.00</javadocs>
     </function_averages>
-    <ncss>1,448.00</ncss>
+    <ncss>1,450.00</ncss>
   </functions>
 </javancss>

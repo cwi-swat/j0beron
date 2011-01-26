@@ -2,6 +2,8 @@ package j0beron.interpreter.ast.stat;
 
 import j0beron.interpreter.ast.ASTNode;
 import j0beron.interpreter.ast.expr.Expr;
+import j0beron.interpreter.eval.env.Env;
+import j0beron.interpreter.eval.values.Bool;
 
 public class ElsIf extends ASTNode {
 
@@ -13,12 +15,12 @@ public class ElsIf extends ASTNode {
 		this.body = body;
 	}
 
-	public Expr getCond() {
-		return cond;
-	}
-	
-	public Stats getBody() {
-		return body;
+	public boolean eval(Env env) {
+		if (((Bool)cond.eval(env)).getValue()) {
+			body.eval(env);
+			return true;
+		}
+		return false;
 	}
 
 }

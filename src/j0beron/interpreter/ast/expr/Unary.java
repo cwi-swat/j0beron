@@ -8,7 +8,7 @@ public abstract class Unary extends Expr {
 		this.arg = arg;
 	}
 	
-	public Expr getArg() {
+	protected Expr getArg() {
 		return arg;
 	}
 	

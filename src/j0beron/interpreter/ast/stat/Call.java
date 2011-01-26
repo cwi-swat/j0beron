@@ -1,6 +1,7 @@
 package j0beron.interpreter.ast.stat;
 
 import j0beron.interpreter.ast.decl.FPSect;
+import j0beron.interpreter.ast.decl.Formals;
 import j0beron.interpreter.ast.decl.Proc;
 import j0beron.interpreter.ast.expr.Expr;
 import j0beron.interpreter.ast.type.Ident;
@@ -25,19 +26,25 @@ public class Call extends Stat {
 		Env callEnv = new Env(clos.getEnv());
 		Proc proc = clos.getProc();
 		proc.getDecls().declare(callEnv);
+		bind(callEnv, proc.getFormals());
+		proc.getBody().eval(callEnv);
+	}
+
+	private void bind(Env env, Formals formals) {
 		Iterator<Expr> iter = actuals.iterator();
-		for (FPSect fp: proc.getFormals()) {
+		for (FPSect fp: formals) {
 			for (Ident id: fp.getIdents()) {
 				Expr actual = iter.next();
+				
 				if (fp.isVar()) {
-					callEnv.declareByRef(id, actual.lvalueOf(env));
+					env.declareByRef(id, actual.lvalueOf(env));
 				}
 				else {
-					callEnv.declareVar(id, actual.eval(env));
+					env.declareVar(id, actual.eval(env));
 				}
 			}
 		}
-		proc.getBody().eval(callEnv);
+		
 	}
 
 }

@@ -20,16 +20,14 @@ public class Assign extends Stat {
 	}
 	
 	public Ref lvalueOf(Env env) {
-		Ref x = (Ref)env.lookup(ident);
-		x = selectors.deref(x, env);
-		return x;
+		Ref ref = (Ref)env.lookup(ident);
+		return selectors.deref(ref, env);
 	}
 
 	@Override
 	public void eval(Env env) {
 		Value x = expr.eval(env);
-		Ref ref = lvalueOf(env);
-		ref.set(x);
+		lvalueOf(env).set(x);
 	}
 
 	
