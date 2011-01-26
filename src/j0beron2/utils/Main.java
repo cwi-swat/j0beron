@@ -13,10 +13,10 @@ import jdepend.textui.JDepend;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		new QuickSortTests(1000, 100).run();
-//		javaNCSS("-ncss", "-all", "-recursive", "@javancss.lst");
-//		javaNCSS("-ncss", "-all", "-xml", "-recursive", "-out", "javancss.xml", "@javancss.lst");
-//		jDependConsole("bin");
+//		new QuickSortTests(1000, 100).run();
+//		javaNCSS("-ncss", "-all", "-recursive", "@javancss2.lst");
+//		javaNCSS("-ncss", "-all", "-xml", "-recursive", "-out", "javancss.xml", "@javancss2.lst");
+		jDependConsole("bin/j0beron2");
 //		jDependXML("bin", "jdepend.xml");
 	}
 	
