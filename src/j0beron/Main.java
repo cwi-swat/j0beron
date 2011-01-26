@@ -1,4 +1,4 @@
-package j0beron.interpreter.utils;
+package j0beron;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,11 +13,11 @@ import jdepend.textui.JDepend;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-//		new QuickSortTests(1000, 100).run();
-//		javaNCSS("-ncss", "-all", "-recursive", "@javancss2.lst");
-//		javaNCSS("-ncss", "-all", "-xml", "-recursive", "-out", "javancss.xml", "@javancss2.lst");
-		jDependConsole("bin/j0beron2");
-//		jDependXML("bin", "jdepend.xml");
+		//new QuickSortTests(1000, 100).run();
+		javaNCSS("-ncss", "-all", "-recursive", "@javancss.lst");
+		javaNCSS("-ncss", "-all", "-xml", "-recursive", "-out", "javancss.xml", "@javancss.lst");
+		jDependConsole("bin");
+		jDependXML("bin", "jdepend.xml");
 	}
 	
 	private static void javaNCSS(String ...args) throws IOException {
@@ -34,7 +34,7 @@ public class Main {
 
 	private static PackageFilter exclusions() {
 		PackageFilter filter = new PackageFilter();
-		filter.addPackage("j0beron2.utils");
+		filter.addPackage("j0beron.utils");
 		filter.addPackage("jdepend");
 		filter.addPackage("javancss");
 		return filter;

@@ -1,4 +1,4 @@
-package j0beron.interpreter.utils;
+package j0beron;
 
 import j0beron.interpreter.parser.Oberon0;
 
@@ -12,8 +12,10 @@ public class QuickSortTests {
 	private final Random rand;
 	private final int runs;
 	private final int inputLength;
+	private final AbstractOberon0 oberon0;
 
-	public QuickSortTests(int runs, int inputLength) {
+	public QuickSortTests(AbstractOberon0 oberon0, int runs, int inputLength) {
+		this.oberon0 = oberon0;
 		this.runs = runs;
 		this.inputLength = inputLength;
 		this.rand = new Random();
@@ -22,8 +24,6 @@ public class QuickSortTests {
 	
 	public void run() {
 		File qs = new File(QUICKSORT);
-		Oberon0 ob0 = new Oberon0();
-		
 		int array[] = new int[inputLength];
 		
 		firstLog();
@@ -32,7 +32,7 @@ public class QuickSortTests {
 			populate(array);
 			
 			String input = toIOString(array);
-			String output = ob0.runIntoString(qs, input);
+			String output = oberon0.runIntoString(qs, input);
 			
 			Arrays.sort(array);
 			String expected = toIOString(array);
